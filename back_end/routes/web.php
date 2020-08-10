@@ -12,5 +12,8 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    // return $router->app->version();
+    return "Hello Lumen";
 });
+
+$router->get('/users', 'ProductController@index');

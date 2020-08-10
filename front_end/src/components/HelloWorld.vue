@@ -31,12 +31,33 @@
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    const headers = {
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"restcountries-v1.p.rapidapi.com",
+      "x-rapidapi-key":"e79acef2f9msh7e232e862d7bf78p1be5e4jsn85b65bd27696",
+      "useQueryString":true
+    }
+
+    this.$http.get(
+      this.$endpoint,
+      headers
+    )
+    .then((response)=>{
+      console.log(response)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
   }
 }
+  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
