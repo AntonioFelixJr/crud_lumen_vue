@@ -16,4 +16,6 @@ $router->get('/', function () use ($router) {
     return "Hello Lumen";
 });
 
-$router->get('/users', 'ProductController@index');
+$router->get('/products', 'ProductController@index');
+
+$router->post('/products', 'ProductController@store');

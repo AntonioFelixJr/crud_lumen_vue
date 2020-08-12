@@ -46,7 +46,7 @@ export default {
     }
 
     this.$http.get(
-      this.$endpoint,
+      this.$endpoint + 'products/',
       headers
     )
     .then((response)=>{
