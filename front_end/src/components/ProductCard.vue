@@ -2,6 +2,7 @@
   <div class="card">
       <div class="card-image">IMAGE</div>
       <div class="card-content">{{ this.product.name }}</div>
+      <div class="card-description">{{ this.product.description }}</div>
       <div class="card-footer">R$ {{ this.product.value }}</div>
   </div>
 </template>
@@ -32,14 +33,20 @@ export default {
 .card-image {
     height: 70%;
     border-radius: 5px 5px 0px 0px;
-    background-color: red;
+    background-color: #90DDF0;
 }
 
 .card-content {
-    height: 20%;
+    height: 10%;
     border-top: black solid 1px;
     color: rgb(20, 20, 20);
     padding-top: 10px;
+}
+
+.card-description {
+    height: 10%;
+    color: rgb(20, 20, 20);
+    font-size: 0.6em;
 }
 
 .card-footer {

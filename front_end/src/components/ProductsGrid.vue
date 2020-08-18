@@ -56,7 +56,10 @@ export default {
 
 #container > * {
   margin-top: 30px;
+  margin-left: 5rem;
+  padding: 1rem;
 }
+
 ul {
   list-style-type: none;
   padding: 0;

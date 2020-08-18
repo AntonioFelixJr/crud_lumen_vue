@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar />
     Menu TOP
     Menu LEFT
     Product grid
@@ -9,16 +10,25 @@
 
 <script>
 import ProductsGrid from './components/ProductsGrid.vue'
+import Navbar from './components/navigation/Navibar.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductsGrid
+    ProductsGrid,
+    Navbar
   }
 }
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/*
+ * Paleta de cores 
+ * https://coolors.co/0a090c-f0edee-07393c-2c666e-90ddf0
+ */
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -51,6 +61,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-color: #F0EDEE;
 }
 ol, ul {
 	list-style: none;
@@ -69,11 +80,23 @@ table {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #F0EDEE80;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2C666E;
 }
 </style>
