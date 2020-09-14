@@ -1,9 +1,11 @@
 <template>
-  <div id="container">
-    <span v-for="product in products" :key="product.id">
-      <ProductCard :product="product"/>
-    </span>
-  </div>
+  <transition name="fade">
+    <div id="container">
+        <span v-for="product in products" :key="product.id">
+          <ProductCard :product="product"/>
+        </span> 
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -50,11 +52,11 @@ export default {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
 }
 
-#container > * {
+#container > span {
   margin-top: 30px;
   margin-left: 5rem;
   padding: 1rem;
@@ -70,5 +72,12 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to.fade-leave-active {
+  opacity: 0;
 }
 </style>
