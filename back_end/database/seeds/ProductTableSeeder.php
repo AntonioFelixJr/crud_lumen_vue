@@ -16,7 +16,8 @@ class ProductsTableSeeder extends Seeder
             ->insert([
                 'name' => 'Joystick PS4',
                 'description' => 'Controle para o video-game PS4',
-                'value' => 299.00
+                'value' => 299.00,
+                'category_id' => 1
             ]);
 
         app('db')
@@ -24,7 +25,8 @@ class ProductsTableSeeder extends Seeder
             ->insert([
                 'name' => 'Teclado Strafe',
                 'description' => 'Teclado mecânico á prova d\'água',
-                'value' => 999.99
+                'value' => 999.99,
+                'category_id' => 2
             ]);
     }
 }

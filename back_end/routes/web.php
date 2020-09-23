@@ -19,3 +19,5 @@ $router->get('/', function () use ($router) {
 $router->get('/products', 'ProductController@index');
 
 $router->post('/products', 'ProductController@store');
+
+$router->get('/categories', 'CategoryController@index');

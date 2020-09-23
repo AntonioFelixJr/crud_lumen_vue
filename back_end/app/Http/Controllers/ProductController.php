@@ -22,7 +22,18 @@ class ProductController extends Controller
 
     public function index()
     {
-        return $this->product->all();
+        $data = [];
+        $products = $this->product->all();
+
+        foreach ($products as $product) {
+            array_push($data, [
+                'name' => $product->name,
+                'value' => $product->value,
+                'category' =>  $product->category->name
+            ]);
+        }
+
+        return $data;
     }
 
     public function store(Request $request)

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Category extends Model
 {
 
     /**
@@ -15,17 +15,14 @@ class Product extends Model
     
     protected $fillable = [
         'name',
-        'description',
-        'image',
-        'value'    
+        'description'
     ];
 
-
     /**
-     * Get the category that owns the product.
+     * Get the products for the category.
      */
-    public function category()
+    public function products()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->hasMany('App\Models\Product');
     }
 }
