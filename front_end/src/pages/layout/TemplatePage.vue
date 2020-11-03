@@ -23,7 +23,7 @@ export default {
 
 <style>
 
-#global-varibles {
+root {
   --primary-color: #90ddf0;
   --second-color: #1895B4;
   --third-color: #2c616e;

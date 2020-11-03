@@ -38,17 +38,18 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // Validate if the input for each field is correct 
         $this->validate($request, [
-            'name' => 'required|string|unique',
+            'name' => 'required|string|unique:products',
             'description' => 'required|string',
-            'image' => 'string',
+            'image' => 'file|size:512',
+            'category_id' => 'required|integer',
             'value' => 'required|numeric'
            ]);
 
         $this->product->create([
             'name' => $request->name,
             'description' => $request->description,
+            'category_id' => $request->category_id,
             'image' => $request->image,
             'value' => $request->value
         ]);

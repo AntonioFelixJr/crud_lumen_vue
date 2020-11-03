@@ -12,7 +12,33 @@
     <div id="content">
       <TableData :listItems="products" :listAttributes="{name: 'Nome', value:'Preço em R$', category: 'Categoria'}" />
     </div>
-    <ModalData @closeModal="modal = false" v-show="modal" />
+    <ModalData @closeModal="modal = false" title="Cadastrar Produtos" v-show="modal">
+        <form>
+          <div class="form-group">
+            <label for="product-name">Nome:</label>
+            <input name="product-name" type="text" placeholder="Digite o nome do produto">
+          </div>
+          <div class="form-group">
+            <label for="category-product">Categoria:</label>
+            <select name="category-product">
+              <option value=""></option>
+              <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="product-value">Valor:</label>
+            <input name="product-value" type="text" placeholder="Digite o valor do produto">
+          </div>
+          <div class="form-group">
+            <label for="product-value">Imagem:</label>
+            <input name="product-image" type="file" title="imagem">
+          </div>
+          <div class="form-group">
+            <label for="product-value">Descrição:</label>
+            <textarea name="product-description" cols="115" rows="10" spellcheck="true"></textarea>
+          </div>
+        </form>
+    </ModalData>
   </div>
 </template>
 
@@ -29,6 +55,7 @@ export default {
   data() {
     return {
       products: [],
+      categories: [],
       modal: false
     }
   },
@@ -53,6 +80,23 @@ export default {
         product.number = count++
         this.products.push(product)
       })
+    })
+    .catch((error)=> {
+      console.log(error)
+    })
+
+    this.$http.get(
+      this.$endpoint + 'categories/',
+      headers
+    )
+    .then((response)=> {
+      response = response.data
+      let count = 1
+      response.forEach(category => {
+        category.number = count++
+        this.categories.push(category)
+      })
+        console.log(this.categories);
     })
     .catch((error)=> {
       console.log(error)
